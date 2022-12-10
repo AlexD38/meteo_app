@@ -1,0 +1,131 @@
+:root{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+body {
+  background-image: url("https://source.unsplash.com/1700x1300?bright-landscape");
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.card {
+  position: relative;
+  border: none;
+  box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.571);
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 15px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 400px;
+  /* font-family: sans-serif; */
+  transition: 0.3s ease;
+  min-height: 30rem;
+}
+
+
+.error {
+    background-color: rgba(203, 66, 66, 0.571);
+    transition: 0.3s ease;
+  }
+.search__wrapper {
+  position: absolute;
+  top: 1rem;
+  margin : 1rem;
+}
+
+.town {
+  font-size: 3rem;
+  align-self: center;
+  text-transform: uppercase;
+}
+.country {
+    font-size: .8rem ;}
+
+.icon {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  width: 150px;
+  font-size: 1rem;
+  padding: 5px;
+}
+
+.temp {
+  font-size: 3rem;
+  align-self: center;
+}
+
+.search__wrapper {
+  display: flex;
+  flex-direction: row;
+  align-self: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.search__icon {
+  width: 40px;
+  height: 40px;
+  font-size: 1.2rem;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.365);
+  border: none;
+  margin-left: 5px;
+  cursor: pointer;
+}
+
+input {
+  font-size: 1.2rem;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.365);
+  border: none;
+  width: 100%;
+  opacity: 1;
+  cursor: text;
+  transition: .3s ease;
+}
+.card-body {
+  position: absolute;
+  display : flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  min-width: 90%;
+  min-height: 70%;
+  bottom: 1rem;
+  /* border : 1px solid red; */
+}
+
+.wind {
+
+  align-self: center;
+  text-align: center;
+  font-size: 1.2rem;
+}
+.desc{
+  font-size: 1.8rem;
+}
+
+.date {
+  border-radius: 10px;
+  text-align: center;
+  left: 25%;
+  right: 25%;
+  top: 560px;
+  font-size: 1.5rem;
+  /* font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif; */
+}/*# sourceMappingURL=style.css.map */
+
+.hidden {
+  width : 0%;
+  opacity: 0;
+  visibility: none ;
+  transition: .3s ease;
+}
