@@ -22,7 +22,10 @@ let sideCard = document.querySelector("#sidecard");
 
 let app = {
   init: function () {
-    app.fetchNewWeather(), app.addListenersToAction(), app.getRandomNummber();
+    app.fetchNewWeather(),
+      app.addListenersToAction(),
+      app.getRandomNummber(),
+      app.displayDayTime();
   },
   //!FETCH weather informations
   fetchNewWeather: async function (location) {
@@ -47,6 +50,7 @@ let app = {
       const weatherDescription = data.weather[0].description;
       descriptionElm.textContent = weatherDescription;
       document.body.style.backgroundImage = `url('https://source.unsplash.com/1700x1300?${weatherDescription}')`;
+      return data;
     } catch (error) {
       console.error("errror is :", error);
       card.classList.add("error");
@@ -105,6 +109,20 @@ let app = {
       app.fetchNewWeather(location);
     } else {
     }
+  },
+  displayDayTime: async function () {
+    const data = await app.fetchNewWeather();
+    console.log(
+      "dayTime : ",
+      data.dt,
+      "Rise :",
+      data.sys.sunrise,
+      "set :",
+      data.sys.sunset,
+    );
+    const date = new Date();
+
+    console.log(date);
   },
 };
 
