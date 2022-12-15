@@ -1,14 +1,21 @@
-:root{
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+:root {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.684);
 }
 body {
-  background-image: url("https://source.unsplash.com/1700x1300?bright-landscape");
   background-repeat: no-repeat;
   background-size: cover;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
+  /* border : 1px solid gold; */
+}
+.card-container {
+  /* border: 3px solid red; */
+  min-width: 29rem;
+  max-height: 35rem;
+  position: relative;
 }
 
 .card {
@@ -24,42 +31,51 @@ body {
   align-items: center;
   width: 100%;
   max-width: 400px;
-  /* font-family: sans-serif; */
   transition: 0.3s ease;
   min-height: 30rem;
 }
+
+.shade {
+  filter: blur(10px);
+}
+
 .sidecard {
-  position: absolute;;
-  border: none;
+  position: absolute;
   box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.571);
-  background-color: rgba(255, 255, 255, 0.3);
+  background-color: #ffffff4d;
   border-radius: 0px 15px 15px 0px;
   padding: 1rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  top: 13rem;
-  right: 44rem;
   min-height: 3rem;
   transition: 0.3s ease;
+  right: 0;
+  top: 3rem;
 }
 .sidecard:hover {
-  box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.571);
+  background-color: #ffffffa5;
+  box-shadow: 0px 0px 10px 7px rgba(0, 0, 0, 0.571);
   transform: translateX(3px);
-  border-left : 3px solid rgba(0, 0, 0, 0);
   transition: 0.3s ease;
 }
 
+.active {
+  position: absolute;
+  width: 500px;
+  border-radius: 15px;
+  transition: all 1s ease;
+}
 
 .error {
-    background-color: rgba(203, 66, 66, 0.571);
-    transition: 0.3s ease;
-  }
+  background-color: rgba(203, 66, 66, 0.571);
+  transition: 0.3s ease;
+}
 .search__wrapper {
   position: absolute;
   top: 1rem;
-  margin : 1rem;
+  margin: 1rem;
 }
 
 .town {
@@ -68,7 +84,8 @@ body {
   text-transform: uppercase;
 }
 .country {
-    font-size: .8rem ;}
+  font-size: 0.8rem;
+}
 
 .icon {
   display: flex;
@@ -111,11 +128,11 @@ input {
   width: 100%;
   opacity: 1;
   cursor: text;
-  transition: .3s ease;
+  transition: 0.3s ease;
 }
 .card-body {
   position: absolute;
-  display : flex;
+  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
@@ -126,12 +143,11 @@ input {
 }
 
 .wind {
-
   align-self: center;
   text-align: center;
   font-size: 1.2rem;
 }
-.desc{
+.desc {
   font-size: 1.8rem;
 }
 
@@ -143,11 +159,15 @@ input {
   top: 560px;
   font-size: 1.5rem;
   /* font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif; */
-}/*# sourceMappingURL=style.css.map */
+} /*# sourceMappingURL=style.css.map */
 
 .hidden {
-  width : 0%;
+  width: 0%;
   opacity: 0;
-  visibility: none ;
-  transition: .3s ease;
+  visibility: none;
+  transition: 0.3s ease;
+}
+.tooltip {
+  background-color: #ffffff4d;
+  color: black;
 }

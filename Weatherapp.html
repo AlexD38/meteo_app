@@ -8,22 +8,24 @@
     <title>Document</title>
   </head>
   <body>
-    <div class="card">
-      <div class="search__wrapper">
-        <input type="text" placeholder="City Name" class="search hidden" />
-        <button class="search__icon">🔍</button>
+    <div class="card-container">
+      <div class="card">
+        <div class="search__wrapper">
+          <input type="text" placeholder="City Name" class="search hidden" />
+          <button class="search__icon">🔍</button>
+        </div>
+        <div class="card-body">
+          <div class="town"></div>
+          <div id="cardElm" class="country"></div>
+          <div id="cardElm" class="date"></div>
+          <div id="cardElm" class="temp"></div>
+          <div id="cardElm" class="icon"></div>
+          <div id="cardElm" class="desc"></div>
+          <div id="cardElm" class="wind"></div>
+        </div>
       </div>
-      <div class="card-body">
-        <div class="town"></div>
-        <div id="cardElm" class="country"></div>
-        <div id="cardElm" class="date"></div>
-        <div id="cardElm" class="temp"></div>
-        <div id="cardElm" class="icon"></div>
-        <div id="cardElm" class="desc"></div>
-        <div id="cardElm" class="wind"></div>
-      </div>
+      <div class="sidecard" id="sidecard"></div>
     </div>
-    <div class="sidecard"></div>
     <script src="app.js" defer></script>
   </body>
 </html>

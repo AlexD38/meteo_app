@@ -18,10 +18,11 @@ let input = document.querySelector("input");
 let cardElm = document.querySelectorAll("#cardElm");
 let descriptionElm = document.querySelector(".desc");
 let form = document.querySelector("form");
+let sideCard = document.querySelector("#sidecard");
 
 let app = {
   init: function () {
-    app.fetchNewWeather(), app.addListenersToAction();
+    app.fetchNewWeather(), app.addListenersToAction(), app.getRandomNummber();
   },
   //!FETCH weather informations
   fetchNewWeather: async function (location) {
@@ -38,13 +39,16 @@ let app = {
       const data = await response.json();
       // si j'ai des données, je les insères dans le DOM
       console.log(data);
-      card.classList.remove("error");
       cityName.textContent = data.name ?? data.message;
+      card.classList.remove("error");
       countryName.textContent = `(${data.sys.country})`;
       temperatureDisplay.textContent = `${Math.round(data.main.temp)} °C`;
       windDisplay.textContent = `${Math.round(data.wind.speed)} km/h`;
-      descriptionElm.textContent = data.weather[0].description;
+      const weatherDescription = data.weather[0].description;
+      descriptionElm.textContent = weatherDescription;
+      document.body.style.backgroundImage = `url('https://source.unsplash.com/1700x1300?${weatherDescription}')`;
     } catch (error) {
+      console.error("errror is :", error);
       card.classList.add("error");
       cardElm.forEach((element) => {
         element.textContent = " ";
@@ -52,21 +56,55 @@ let app = {
       console.log(error);
     }
   },
+  getRandomNummber: function () {
+    const random = Math.floor(Math.random() * 10);
+    return random;
+  },
+  fetchQuotes: async function () {
+    const random = app.getRandomNummber();
+    const url = "/quotes.json";
+    const response = await fetch(url);
+    const data = await response.json();
+    const quotes = data.quotes;
+    sideCard.textContent = quotes[random].quote + " " + quotes[random].author;
+  },
   addListenersToAction: function () {
     // attache un listener sur l'icone de search, qui va appeler fetchweather.
     searchIcon.addEventListener("click", app.getInputValue);
+
     //show l'input
     searchIcon.addEventListener("click", app.hideSearchInput);
+    //developer le sidecard
+    sideCard.addEventListener("click", app.developSidecard);
+    input.addEventListener("keyup", app.enterKeyPressed);
   },
   hideSearchInput: function () {
     input.classList.toggle("hidden");
   },
   //récupère la value de l'input
-  getInputValue: function (event) {
-    // console.log("input value : " + input.value);
+  getInputValue: function () {
     const location = input.value;
     // appelle fetchNewWeather avec la nouvelle location
     app.fetchNewWeather(location);
+    return location;
+  },
+
+  developSidecard: function () {
+    sideCard.classList.toggle("active");
+    if (sideCard.classList.contains("active")) {
+      app.fetchQuotes();
+      card.classList.add("shade");
+    } else {
+      card.classList.remove("shade");
+      sideCard.textContent = "";
+    }
+  },
+  enterKeyPressed: function (e) {
+    if (e.key === "Enter") {
+      const location = app.getInputValue();
+      app.fetchNewWeather(location);
+    } else {
+    }
   },
 };
 
