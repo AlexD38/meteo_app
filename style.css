@@ -9,7 +9,8 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  /* border : 1px solid gold; */
+  /* border: 1px solid gold; */
+  position: relative;
 }
 .card-container {
   /* border: 3px solid red; */
@@ -170,4 +171,12 @@ input {
 .tooltip {
   background-color: #ffffff4d;
   color: black;
+}
+.date-display {
+  background-color: rgba(240, 248, 255, 0.678);
+  border-radius: 15px;
+  padding: 1rem;
+  position: absolute;
+  top: 0;
+  right: 0;
 }

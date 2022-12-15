@@ -13,19 +13,23 @@ let temperatureDisplay = document.querySelector(".temp");
 let searchIcon = document.querySelector("button");
 let windDisplay = document.querySelector(".wind");
 let card = document.querySelector(".card");
-let dateDisplay = document.querySelector(".date");
+// let dateDisplay = document.querySelector(".date");
 let input = document.querySelector("input");
 let cardElm = document.querySelectorAll("#cardElm");
 let descriptionElm = document.querySelector(".desc");
 let form = document.querySelector("form");
 let sideCard = document.querySelector("#sidecard");
+let dateDisplay = document.querySelector("#dateDisplay");
+// let timeDisplay = document.querySelector("#timeDisplay");
 
 let app = {
   init: function () {
     app.fetchNewWeather(),
       app.addListenersToAction(),
       app.getRandomNummber(),
-      app.displayDayTime();
+      app.displayDate();
+    // app.displayTime();
+    setInterval(app.displayTime, 1000);
   },
   //!FETCH weather informations
   fetchNewWeather: async function (location) {
@@ -110,19 +114,23 @@ let app = {
     } else {
     }
   },
-  displayDayTime: async function () {
-    const data = await app.fetchNewWeather();
-    console.log(
-      "dayTime : ",
-      data.dt,
-      "Rise :",
-      data.sys.sunrise,
-      "set :",
-      data.sys.sunset,
-    );
+  displayDate: function () {
     const date = new Date();
-
-    console.log(date);
+    const options = {
+      weekday: "long",
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    };
+    const currentDayMonthyear = date.toLocaleDateString(undefined, options);
+    let dateDisplayed = (dateDisplay.innerHTML = currentDayMonthyear);
+    return dateDisplayed;
+  },
+  displayTime: function () {
+    let HTML = (dateDisplay.innerHTML = app.displayDate() + " ");
+    const date = new Date();
+    const currentHour = date.toLocaleTimeString();
+    const secondsUpdated = (dateDisplay.innerHTML += currentHour);
   },
 };
 
