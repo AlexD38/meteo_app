@@ -1,9 +1,3 @@
-// TODO : ranger ma fonction dans un objet app.init avec les listeners quivont bien
-// todo: connecter l'input pour qu'il fetch la bonne ville lors de la recherche
-// todo : renvoyer une citation random à chaque connection.
-// todo: chemin de la journée (temps qui rste au soleil avant la fin de la journée)
-// todo : icons / anims pour illustrer le temps
-// todo : organiser card
 
 //!déclarations d'éléments du DOM :
 let cityName = document.querySelector(".town");
@@ -39,7 +33,7 @@ let app = {
       }
 
       // je déclare l'url pour le fetch
-      let URL = `http://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&appid=aaf97f9823335713fe4eab1ef64653df`;
+      let URL = `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&appid=aaf97f9823335713fe4eab1ef64653df`;
       // ma réponse est le résultat de mon fetch
       const response = await fetch(URL);
       // mes données sont ma réponse au format json
